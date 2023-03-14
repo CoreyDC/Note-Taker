@@ -1,28 +1,24 @@
-// VARIABLES TO REQUIRE AND INITIALIZE EXPRESS & PACKAGES
+// VARIABLES TO BRING IN PACKAGES AND ROUTES
 const express = require('express');
 const app = express();
-const PORT = 3001;
 
 const fs = require('fs');
 const path = require('path');
 
-// SETTING UP VIEW ENGINE FOR HTML
-app.set('view engine', 'ejs');
+const htmlRoutes = require('./routes/htmlRoutes');
 
-// BRINGING IN ROUTES
-const indexRouter = require('./routes/html');
-const notesRouter = require('./routes/notes');
+const PORT = 3001;
 
+// BRINGING IN DIRECTORIES TO SERVER
+app.use(express.urlencoded({
+    extended: true
+}));
 
-// USING ROUTERS
-app.use('/', indexRouter);
-app.use('/', notesRouter)
+app.use(express.static('public'));
+app.use(express.json());
+app.use('/', htmlRoutes);
 
-
-// INITIALIZING APP
-
+// LISTENING TO SERVER
 app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`);
+    console.log(`Now listening on port ${PORT}`);
 });
-
-

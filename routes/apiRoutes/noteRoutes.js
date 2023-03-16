@@ -5,10 +5,11 @@ const router = express.Router();
 const {
     notes
 } = require('../../db/db');
+
 const {
-    newNote,
+    createNewNote,
     deleteNote
-} = require('../../lib/noteFile');
+} = require('../../lib/noteFunctions');
 
 
 router.get('/notes', (req, res) => {
@@ -18,7 +19,7 @@ router.get('/notes', (req, res) => {
 
 router.post('/notes', (req, res) => {
     req.body.id = notes.length.toString();
-    let note = newNote(req.body, notes);
+    let note = createNewNote(req.body, notes);
     res.json(note);
 })
 

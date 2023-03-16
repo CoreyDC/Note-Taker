@@ -1,6 +1,7 @@
-// VARIABLES TO BRING IN PACKAGES AND ROUTES
+// LISTENING FOR PORT 3301
 const PORT = process.env.PORT || 3001;
 
+// VARIABLES TO BRING IN PACKAGES AND ROUTES 
 const express = require('express');
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+// BRINGING IN ROUTES USING .USE 
 app.use(express.static('public'));
 app.use(express.json());
 

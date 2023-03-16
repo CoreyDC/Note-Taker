@@ -21,3 +21,5 @@ To use this appliation you type in your note title and description, click the sa
 ## Credits
 
 GitHub URL: https://github.com/CoreyDC/Note-Taker
+
+Deployed URL on Heroku: https://cc-note-taker.herokuapp.com/notes
